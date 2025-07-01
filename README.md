@@ -1,6 +1,6 @@
 <div align="center">
 
-# AvatarGO: Zero-shot 4D Human-Object Interaction Generation and Animation
+# FreeMorph: Tuning-Free Generalized Image Morphing with Diffusion Model
   
 <a href="https://yukangcao.github.io/">Yukang Cao</a><sup>*</sup>,
 <a href="https://chenyangsi.top/">Chenyang Si</a><sup>*</sup>, 
