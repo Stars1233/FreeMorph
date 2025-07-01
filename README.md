@@ -2,8 +2,8 @@
 
 # AvatarGO: Zero-shot 4D Human-Object Interaction Generation and Animation
   
-<a href="https://yukangcao.github.io/">Yukang Cao</a>,
-<a href="https://chenyangsi.top/">Chenyang Si</a>, 
+<a href="https://yukangcao.github.io/">Yukang Cao</a><sup>*</sup>,
+<a href="https://chenyangsi.top/">Chenyang Si</a><sup>*</sup>, 
 <a href="https://openreview.net/profile?id=~Jinghao_Wang2">Jinghao Wang</a>
 <a href="https://liuziwei7.github.io/">Ziwei Liu</a><sup>†</sup>
 
