@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="A versatile pipeline for generating transition sequences from two input images">
+  <meta name="keywords" content="2D generative model, diffusion models, image morphing">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FreeMorph</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/result.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">FreeMorph: Tuning-Free Generalized Image Morphing with Diffusion Model</h1>
+          <div class="is-size-4 publication-authors">
+            <span class="author-block">
+              <a href="https://yukangcao.github.io/">Yukang Cao</a><sup>1*</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://chenyangsi.top/">Chenyang Si</a><sup>2*‡</sup>, 
+            </span>
+            <span class="author-block">
+              <a href="https://openreview.net/profile?id=~Jinghao_Wang2">Jinghao Wang</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://liuziwei7.github.io/">Ziwei Liu</a><sup>1†</sup>
+            </span>
+          </div>
+
+          <div class="is-size-6 publication-authors">
+            <span class="footnote">
+              <sup>*</sup>Equal contributions  
+              <sup>‡</sup>Project lead 
+              <sup>†</sup>Corresponding author
+            </span>
+          </div>
+          <div class="is-size-6 publication-authors">
+            <p>
+            <span class="author-block">
+              <sup>1</sup>S-Lab Nanyang Technological University 
+              <sup>2</sup>Nanjing University  
+              <sup>3</sup>The Chinese University of Hong Kong
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            ICLR 2025
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="https://github.com/yukangcao/FreeMorph"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="my-hr">
+  <hr>
+</div>
+
+<section class="section">
+
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <table>
+          <tr>
+            <td><img src="./static/FreeMorph-teaser.png"></td>
+          </tr>
+
+        </table>
+        <div class="content has-text-justified">
+          <p>
+          Given two input images, FreeMorph effectively generates smooth transitions between them within 30 seconds.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+
+<div class="columns is-centered has-text-centered">
+  <div class="column is-four-fifths">
+    <h2 class="title is-3">Video</h2>
+    <div class="content">
+      <div class="video-container">
+        <iframe
+          width="1200"
+          height="675"
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present <strong>FreeMorph</strong>, the first tuning-free method for image morphing that accommodates inputs with different semantics or layouts. Unlike existing methods that rely on fine-tuning pre-trained diffusion models and are limited by time constraints and semantic/layout discrepancies, FreeMorph delivers high-fidelity image morphing without requiring per-instance training. Despite their efficiency and potential, tuning-free methods face challenges in maintaining high-quality results due to the non-linear nature of the multi-step denoising process and biases inherited from the pre-trained diffusion model. In this paper, we introduce FreeMorph to address these challenges by integrating two key innovations. <strong>1)</strong> We first propose a <strong>guidance-aware spherical interpolation</strong> design that incorporates explicit guidance from the input images by modifying the self-attention modules, thereby addressing identity loss and ensuring directional transitions throughout the generated sequence. <strong>2)</strong> We further introduce a <strong>step-oriented variation trend</strong> that blends self-attention modules derived from each input image to achieve controlled and consistent transitions that respect both inputs. Our extensive evaluations demonstrate that FreeMorph outperforms existing methods, being 10X ~ 50X faster and establishing a new state-of-the-art for image morphing. 
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+<hr>
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full-width">
+            <h2 class="title is-3">Methodology</h2>
+            <div class="content has-text-justified">
+              <p>
+
+              </p>
+            </div>
+            <img src="./static/freemorph_pipeline.png" witdh="300">
+              <p>
+              Given two input images, we first propose two modules: (1) Guidance-aware spherical interpolcation, and (2) Step-oritented variation trend to enhance the directness (capability to preserve the identity) and consistency (smooth transitions). Additionally, we notice that applying either of this two modules across the denoising steps yields suboptimal results. Therefore, we develop a refined approach for the forward diffusion and reverse denoising processes as in the algorithm.
+
+              </p>
+          </div>
+        </div>
+
+      </div>
+
+<hr>
+<div class="columns is-centered has-text-centered">
+  <div class="column is-full-width">
+    <h2 class="title is-3">Qualitative Comparisons</h2>
+    <div class="slideshow-container" style="display: flex; justify-content: center; align-items: center; position: relative;">
+        <div style="position: relative;">
+
+      <div class="slide">
+        <img src="./static/comparison/1.png" style="width: 100%;">
+      </div>
+      <div class="slide">
+        <img src="./static/comparison/2.png" style="width: 100%;">
+      </div>
+      <div class="slide">
+        <img src="./static/comparison/3.png" style="width: 100%;">
+      </div>
+      <div class="slide">
+        <img src="./static/comparison/4.png" style="width: 100%;">
+      </div>
+      <div class="slide">
+        <img src="./static/comparison/5.png" style="width: 100%;">
+      </div>
+      <div class="slide">
+        <img src="./static/comparison/6.png" style="width: 100%;">
+      </div>
+      <div class="slide">
+        <img src="./static/comparison/7.png" style="width: 100%;">
+      </div>
+      <div class="slide">
+        <img src="./static/comparison/8.png" style="width: 100%;">
+      </div>
+      <div class="slide">
+        <img src="./static/comparison/9.png" style="width: 100%;">
+      </div>
+      <div class="slide">
+        <img src="./static/comparison/10.png" style="width: 100%;">
+      </div>
+      <div class="slide">
+        <img src="./static/comparison/11.png" style="width: 100%;">
+      </div>
+      <div class="slide">
+        <img src="./static/comparison/12.png" style="width: 100%;">
+      </div>
+      <div class="slide">
+        <img src="./static/comparison/13.png" style="width: 100%;">
+      </div>
+
+
+<div class="navigation-dots" style="margin-top: 20px; display: flex; justify-content: center; gap: 10px;">
+  <span class="dot" onclick="changeSlideTo(0)"></span>
+  <span class="dot" onclick="changeSlideTo(1)"></span>
+  <span class="dot" onclick="changeSlideTo(2)"></span>
+  <span class="dot" onclick="changeSlideTo(3)"></span>
+  <span class="dot" onclick="changeSlideTo(4)"></span>
+  <span class="dot" onclick="changeSlideTo(5)"></span>
+  <span class="dot" onclick="changeSlideTo(6)"></span>
+  <span class="dot" onclick="changeSlideTo(7)"></span>
+  <span class="dot" onclick="changeSlideTo(8)"></span>
+  <span class="dot" onclick="changeSlideTo(9)"></span>
+  <span class="dot" onclick="changeSlideTo(10)"></span>
+  <span class="dot" onclick="changeSlideTo(11)"></span>
+  <span class="dot" onclick="changeSlideTo(12)"></span>
+</div>
+
+      <button class="button prev" 
+            onclick="changeSlide(-1)" 
+            style="margin-left: -100px;z-index: 10; position: absolute; left: 10px; top: 50%; transform: translateY(-50%);"> 
+        &#10094;
+      </button>
+      <button class="button next" 
+            onclick="changeSlide(1)" 
+            style="margin-right: -100px;z-index: 10; position: absolute; right: 10px; top: 50%; transform: translateY(-50%);"> 
+        &#10095;
+      </button>
+  </div>
+
+
+</div>
+</div>
+</div>
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+        @article{
+        }
+    </code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is constructed using the source code provided by <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>, and we are grateful for the template they provided.
+            Allow us to express our appreciation for their contribution.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+let currentSlideIndex = 0;
+
+function changeSlide(step) {
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+
+    slides[currentSlideIndex].style.display = 'none'; // Hide current slide
+    dots[currentSlideIndex].classList.remove('active'); // Remove active class from current dot
+
+    currentSlideIndex = (currentSlideIndex + step + slides.length) % slides.length;
+
+    slides[currentSlideIndex].style.display = 'block'; // Show new slide
+    dots[currentSlideIndex].classList.add('active'); // Add active class to new dot
+}
+
+// Initial setup to hide all slides except the first one
+document.querySelectorAll('.slide').forEach((slide, index) => {
+    slide.style.display = (index === 0) ? 'block' : 'none'; // Show the first slide and hide others
+});
+
+// Automatically change slides every 10 seconds
+setInterval(() => {
+    changeSlide(1);
+}, 10000); // Change slide every 10 seconds
+
+// Update display initially
+document.querySelectorAll('.dot')[currentSlideIndex].classList.add('active'); // Set first dot active
+</script>
+</section>  
+
+</html>
