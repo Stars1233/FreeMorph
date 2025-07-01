@@ -2,17 +2,16 @@
 
 # FreeMorph: Tuning-Free Generalized Image Morphing with Diffusion Model
   
-<a href="https://yukangcao.github.io/">Yukang Cao</a>\*<sup>,
-<a href="https://chenyangsi.top/">Chenyang Si</a><sup>\*</sup>, 
+<a href="https://yukangcao.github.io/">Yukang Cao</a><sup>\*</sup>,
+<a href="https://chenyangsi.top/">Chenyang Si</a><sup>\*</sup>,
 <a href="https://openreview.net/profile?id=~Jinghao_Wang2">Jinghao Wang</a>
 <a href="https://liuziwei7.github.io/">Ziwei Liu</a><sup>†</sup>
 
 
-[![Paper](http://img.shields.io/badge/Paper-arxiv.2410.07164-B31B1B.svg)](https://arxiv.org/abs/2410.07164)
+[![Paper]()]()
 <a href="https://yukangcao.github.io/FreeMorph/"><img alt="page" src="https://img.shields.io/badge/Webpage-0054a6?logo=Google%20chrome&logoColor=white"></a>
 
-<img src="./docs/static/avatargo-demo-1.gif">
-<img src="./docs/static/avatargo-demo-2.gif">
+<img src="./docs/static/FreeMorph-teaser.png">
   
 Please refer to our webpage for more visualizations.
 </div>
