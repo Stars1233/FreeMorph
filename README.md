@@ -22,7 +22,7 @@ We present FreeMorph, the first tuning-free method for image morphing that accom
 
 ## Install
 ```bash
-# python 3.8 cuda 11.8 pytorch 2.2.1 xformers 0.0.25
+# python 3.8 cuda 12.1 pytorch 2.1.0
 conda create -n freemorph python=3.8 -y && conda activate freemorph
 conda install -c "nvidia/label/cuda-12.1.0" cuda-toolkit
 
