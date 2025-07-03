@@ -8,7 +8,7 @@
 <a href="https://liuziwei7.github.io/">Ziwei Liu</a><sup>†</sup>
 
 
-[![Paper]()]()
+[![Paper](http://img.shields.io/badge/Paper-arxiv.2507.01953-B31B1B.svg)](https://arxiv.org/abs/2507.01953)
 <a href="https://yukangcao.github.io/FreeMorph/"><img alt="page" src="https://img.shields.io/badge/Webpage-0054a6?logo=Google%20chrome&logoColor=white"></a>
 
 <img src="./docs/static/FreeMorph-teaser.png">
