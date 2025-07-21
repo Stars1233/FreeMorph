@@ -9,7 +9,6 @@ from accelerate.utils import set_seed
 from PIL import Image
 from tqdm import tqdm, trange
 from transformers import LlavaNextForConditionalGeneration, LlavaNextProcessor
-
 import argparse
 
 
@@ -132,9 +131,9 @@ if __name__ == "__main__":
     model.to("cuda")
 
     json_output = []
-    all_images = glob.glob("args.image_path")
+    all_images = glob.glob(f"{args.image_path}/*")
     for i, image_path in enumerate(tqdm(all_images)):
-        idx = image_path.split('.')[0]
+        idx = image_path.split('.')[-2]
         if idx.endswith('1'):
             continue
         image_path_0 = image_path
@@ -167,7 +166,7 @@ if __name__ == "__main__":
             }
         )
 
-    with open("args.json_path/caption.json", "w") as f:
+    os.makedirs(args.json_path, exist_ok=True)
+    with open(f"{args.json_path}/caption.json", "w") as f:
         for item in json_output:
-            # Convert each dictionary to a JSON string and write it to the file
             f.write(json.dumps(item) + "\n")
