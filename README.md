@@ -57,7 +57,7 @@ python freemorph.py --json_path /PATH/TO/DESIRED/CAPTION_PATH
 ```
 
 ## Morph4Data
-The 4-class evaluation data will be released soon.
+The 4-class evaluation data, Morph4Data, is now released. You can download the dataset from [Google Drive](https://drive.google.com/file/d/1QLMzGWb-hTLu96JamhDmwfRf7QdIOqX9/view?usp=sharing) or [OneDrive](https://entuedu-my.sharepoint.com/:u:/g/personal/yukang_cao_staff_main_ntu_edu_sg/EVWvUED4QNVHih_H4wOrdKwBotVA27ouUJZXtaDaNPJn-w?e=7Lau1d)
 
 
 ## Misc.
