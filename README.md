@@ -63,5 +63,10 @@ The 4-class evaluation data, Morph4Data, is now released. You can download the d
 ## Misc.
 If you want to cite our work, please use the following bib entry:
 ```
-
+@article{cao2025freemorph,
+  title={FreeMorph: Tuning-Free Generalized Image Morphing with Diffusion Model},
+  author={Cao, Yukang and Si, Chenyang and Wang, Jinghao and Liu, Ziwei},
+  journal={arXiv preprint arXiv:2507.01953},
+  year={2025}
+}
 ```
